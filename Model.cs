@@ -14,7 +14,47 @@ namespace Lab4
         private string bodyType;
         private double distance;
         private double calories;
+        private string name;
+        private string gender;
+        private string activity;
+        private string eattingPlan;
         #region gettrs
+        public string EattingPlan
+        {
+            get
+            {
+                return this.eattingPlan;
+            }
+
+            set
+            {
+                this.eattingPlan = value;
+            }
+        }
+        public string Gender
+        {
+            get
+            {
+                return this.gender;
+            }
+
+            set
+            {
+                this.gender = value;
+            }
+        }
+        public string Activity
+        {
+            get
+            {
+                return this.activity;
+            }
+
+            set
+            {
+                this.activity = value;
+            }
+        }
         public int Age
         {
             get
@@ -25,6 +65,18 @@ namespace Lab4
             set
             {
                 this.age = value;
+            }
+        }
+        public string Name
+        {
+            get
+            {
+                return this.name;
+            }
+
+            set
+            {
+                this.name = value;
             }
         }
         public double Height
@@ -88,6 +140,28 @@ namespace Lab4
             }
         }
         #endregion
-
+        public void WhatTypeOfBody()
+        {
+            bodyType = "Астеник";
+        }
+        public void HowManyCalories()
+        {
+            calories = distance/100.0;
+        }
+        public void GetEattingPlan()
+        {
+            eattingPlan="Кушай больше овощей))))";
+        }
+        public Model(string Name0,int Age0,double Height0,double Weight0,string BodyType0,double Calories0,string Gender0,string Activity0)
+        {
+            name=Name0;
+            age=Age0;
+            weight=Weight0;
+            height=Height0;
+            bodyType=BodyType0;
+            calories=Calories0;
+            gender = Gender0;
+            activity=Activity0;
+        }
     }
 }

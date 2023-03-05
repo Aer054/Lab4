@@ -7,11 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox HorizontalAlignment="Left" FontSize="16" Margin="278,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="264" Height="42"/>
-        <Label Content="Логин" HorizontalAlignment="Left" FontSize="16" Margin="213,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.436,-1.07" Height="42" Width="55"/>
+        <Frame Content=""/>
+        <TextBox Name="TextBoxLogin" HorizontalAlignment="Left" FontSize="16" Margin="278,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="264" Height="42"/>
+        <Label  Content="Логин" HorizontalAlignment="Left" FontSize="16" Margin="213,154,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.436,-1.07" Height="42" Width="55"/>
         <Label Content="Пароль" HorizontalAlignment="Left" FontSize="16" Margin="208,217,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.436,-1.07" Height="42" Width="65"/>
-        <Button Command="{Binding Enter}" Content="Войти" HorizontalAlignment="Center" FontSize="16" Margin="0,299,0,0" VerticalAlignment="Top" Height="78" Width="142"/>
-        <PasswordBox HorizontalAlignment="Left" FontSize="16" Margin="278,217,0,0" VerticalAlignment="Top" Width="264" Height="42"/>
-
+        <Button Command="{Binding Enter}" Name ="EnterButton" Content="Войти" HorizontalAlignment="Left" FontSize="16" Margin="278,281,0,0" VerticalAlignment="Top" Height="34" Width="122"/>
+        <PasswordBox Name="PasswordBox" HorizontalAlignment="Left" FontSize="16" Margin="278,217,0,0" VerticalAlignment="Top" Width="264" Height="42"/>
+        <Label Content="Авторизация" FontSize="20" HorizontalAlignment="Left" Margin="345,93,0,0" VerticalAlignment="Top"/>
+        <Button Command="{Binding Register}" Content="Регитрация" FontSize="16" HorizontalAlignment="Left" Margin="415,281,0,0" VerticalAlignment="Top" Height="34" Width="127"/>
     </Grid>
 </Window>

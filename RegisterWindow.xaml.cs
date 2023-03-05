@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,14 +15,14 @@ using System.Windows.Shapes;
 namespace Lab4
 {
     /// <summary>
-    /// Логика взаимодействия для Window1.xaml
+    /// Логика взаимодействия для RegisterWindow.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class RegisterWindow : Window
     {
-        public Window1(DataTable dt_user)
+        public RegisterWindow()
         {
             InitializeComponent();
-            DataContext = new ViewModel(dt_user);
+            DataContext = new RegisterViewModel(this);
         }
     }
 }

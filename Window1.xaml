@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Lab4"
+        xmlns:local="clr-namespace:Lab4" d:DataContext="{d:DesignInstance Type=local:ViewModel}"
         mc:Ignorable="d"
         Title="Window1" Height="520" Width="600">
     <Grid>
@@ -12,31 +12,37 @@
             <ColumnDefinition Width="167*"/>
         </Grid.ColumnDefinitions>
         <Grid Background="AntiqueWhite">
-            <Label Content="Name" FontSize="16" HorizontalAlignment="Left" Margin="30,35,0,0" VerticalAlignment="Top" Height="34" Width="58"/>
-            <TextBox HorizontalAlignment="Left" Margin="121,245,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="106" Height="22"/>
+            <Label Content="{Binding CurrentAccount.Name}" FontSize="16" HorizontalAlignment="Left" Margin="30,35,0,0" VerticalAlignment="Top" Height="34" Width="93"/>
+            <TextBox IsEnabled="{Binding IsEnabled}" HorizontalAlignment="Left" Margin="121,245,0,0" TextWrapping="Wrap" Text="{Binding CurrentAccount.Age}" VerticalAlignment="Top" Width="106" Height="22"/>
             <Label Content="Возраст" HorizontalAlignment="Left" Margin="30,245,0,0" VerticalAlignment="Top" Height="26" Width="53"/>
-            <TextBox HorizontalAlignment="Left" Margin="121,280,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="106" Height="22"/>
+            <TextBox IsEnabled="{Binding IsEnabled}" HorizontalAlignment="Left" Margin="121,280,0,0" TextWrapping="Wrap" Text="{Binding CurrentAccount.Height}" VerticalAlignment="Top" Width="106" Height="22"/>
             <Label Content="Рост" HorizontalAlignment="Left" Margin="30,276,0,0" VerticalAlignment="Top" Height="26" Width="34"/>
-            <TextBox HorizontalAlignment="Left" Margin="121,311,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="106" Height="22"/>
+            <TextBox IsEnabled="{Binding IsEnabled}" HorizontalAlignment="Left" Margin="121,311,0,0" TextWrapping="Wrap" Text="{Binding CurrentAccount.Weight}" VerticalAlignment="Top" Width="106" Height="22"/>
             <Label Content="Вес" HorizontalAlignment="Left" Margin="30,307,0,0" VerticalAlignment="Top" Height="26" Width="29"/>
-            <ComboBox HorizontalAlignment="Left" Margin="121,344,0,0" VerticalAlignment="Top" Width="106" Height="19"/>
+            <ComboBox SelectedItem="{Binding CurrentAccount.Gender}" IsEnabled="{Binding IsEnabled}" ItemsSource="{Binding Gender}" HorizontalAlignment="Left" Margin="121,344,0,0" VerticalAlignment="Top" Width="106" Height="19"/>
             <Label Content="Пол" HorizontalAlignment="Left" Margin="30,344,0,0" VerticalAlignment="Top" Height="26" Width="32"/>
             <Label Content="Активность" HorizontalAlignment="Left" Margin="30,371,0,0" VerticalAlignment="Top" Height="26" Width="86"/>
-            <ComboBox HorizontalAlignment="Left" Margin="121,375,0,0" VerticalAlignment="Top" Width="106" Height="22"/>
-            <Button Content="Cохранить" HorizontalAlignment="Left" Margin="30,409,0,0" VerticalAlignment="Top" Height="24" Width="68"/>
-            <Button Content="Изменить" HorizontalAlignment="Left" Margin="121,409,0,0" VerticalAlignment="Top" Height="24" Width="68"/>
+            <ComboBox SelectedItem="{Binding CurrentAccount.Activity}" IsEnabled="{Binding IsEnabled}" ItemsSource="{Binding Activity}" HorizontalAlignment="Left" Margin="121,375,0,0" VerticalAlignment="Top" Width="106" Height="22"/>
+            <Button Command ="{Binding Save}" Content="Cохранить" HorizontalAlignment="Left" Margin="30,409,0,0" VerticalAlignment="Top" Height="24" Width="68"/>
+            <Button Command ="{Binding Change}" Content="Изменить" HorizontalAlignment="Left" Margin="121,409,0,0" VerticalAlignment="Top" Height="24" Width="68"/>
             <Label Content="Телосложение:" HorizontalAlignment="Left" Margin="30,448,0,0" VerticalAlignment="Top"/>
-            <Label Content="Label" HorizontalAlignment="Left" Margin="128,448,0,0" VerticalAlignment="Top"/>
+            <Label Content="{Binding CurrentAccount.BodyType}" HorizontalAlignment="Left" Margin="128,448,0,0" VerticalAlignment="Top"/>
             <Label Content="Профиль" FontSize="18"  HorizontalAlignment="Left" Margin="89,0,0,0" VerticalAlignment="Top"/>
             <Image Margin="64,61,69,264" Source="/1649232757_36-vsegda-pomnim-com-p-pustoe-litso-foto-43.jpg" Stretch="Fill"/>
         </Grid>
         <Grid Grid.Column="1" Background="White">
-            <Label Content="Растоянние пройденное за сегодня(км):" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Margin="245,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="65" Height="26" RenderTransformOrigin="0.538,0.213"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="65*"/>
+                <RowDefinition Height="103*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Растоянние пройденное за сегодня(м):" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Margin="245,58,0,0" TextWrapping="Wrap" Text="{Binding CurrentAccount.Distance}" VerticalAlignment="Top" Width="49" Height="26" RenderTransformOrigin="0.538,0.213"/>
             <Label Content="Ваша активность" FontSize="18" HorizontalAlignment="Left" Margin="91,10,0,0" VerticalAlignment="Top"/>
             <Label Content="Потрачено калорий: " HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top"/>
-            <Label Content="Label" HorizontalAlignment="Left" Margin="136,89,0,0" VerticalAlignment="Top"/>
-            <Label Content="План питания" FontSize="18" HorizontalAlignment="Center" Margin="0,166,0,0" VerticalAlignment="Top"/>
+            <Label Content="{Binding CurrentAccount.Calories}" HorizontalAlignment="Left" Margin="136,89,0,0" VerticalAlignment="Top"/>
+            <Label Content="План питания" FontSize="18" HorizontalAlignment="Center" Margin="0,151,0,0" VerticalAlignment="Top"/>
+            <Button Command ="{Binding Ok}" Content="OK" HorizontalAlignment="Left" Margin="299,58,0,0" VerticalAlignment="Top" Height="26" Width="25"/>
+            <Label Content="{Binding CurrentAccount.EattingPlan}" HorizontalAlignment="Left" Margin="44,195,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
         </Grid>
 
 

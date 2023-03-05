@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,8 @@ namespace Lab4
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new ProfileViewModel();
+            DataContext = new ProfileViewModel(this);
+
         }
     }
 }
